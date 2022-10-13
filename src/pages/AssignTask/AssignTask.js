@@ -1,15 +1,15 @@
 import React from "react";
 import Header from "../Header";
-import Emptasktable from "../../components/emptask/Emptasktable";
+import AssigntaskTable from "../../components/Assigntask/AssigntaskTable";
 const inititalState1 = [
   {
     id: "1233",
     taskdate: "06/10/2022",
-    taskgiven: "anand kumar naveen",
+    taskgiven: "soundesh kumar naveen",
     project: "office ui office ui office ui office",
     task: "dashboard screen office ui office ui office",
     taskassigned: "soundesh",
-    empremarks: " officedashboard screen office ui office ui office",
+    empremarks: "soundesh try implementation",
     Approverremarks: "creating dash boarddashboard screen office ui ",
     worked: "3",
     clocked: "8",
@@ -98,6 +98,7 @@ const inititalState1 = [
     status: "yes",
   },
 ];
+
 const headerstate = [
   {
     id: "1233",
@@ -115,18 +116,17 @@ const headerstate = [
     Status: "",
   },
 ];
-
-const EmpTask = () => {
+const AssignTask = () => {
   return (
-    <div className="ml-1">
+    <div>
       <div>
         <Header
-          pagehead="employee task"
-          pageicon={<i className="fa fa-users" aria-hidden="true"></i>}
+          pagehead="Assign task"
+          pageicon={<i className="fa-regular fa-clipboard"></i>}
         />
       </div>
       <div>
-        <Emptasktable
+        <AssigntaskTable
           initialState={inititalState1}
           title="Not Approved task"
           headerState={headerstate}
@@ -137,4 +137,4 @@ const EmpTask = () => {
   );
 };
 
-export default EmpTask;
+export default AssignTask;

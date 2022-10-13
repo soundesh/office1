@@ -6,14 +6,14 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Paper from "@mui/material/Paper";
 import CreateIcon from "@mui/icons-material/Create";
 import { useState, useEffect } from "react";
-import Tableheader from "../assitComponet/Tableheader";
-import "./Emptasktable.css";
-import IdleAdd from "./IdleAdd";
+import CreateAssigntask from "./CreateAssigntask";
 import SingleDetail from "../assitComponet/SingleDetail";
+
+import Tableheader from "../assitComponet/Tableheader";
 
 import SelectorFrom from "../assitComponet/SelectorFrom";
 
-const Emptasktable = ({
+const AssigntaskTable = ({
   initialState,
   headerState,
   title,
@@ -21,7 +21,7 @@ const Emptasktable = ({
 }) => {
   const [show, setShow] = useState(false);
   const [shownontable, setShownontable] = useState(false);
-  const [IdleAddShow, setIdleAddShow] = useState(false);
+  const [AssigntaskShow, setAssigntaskShow] = useState(false);
   const [allData, setAllData] = useState(initialState);
   const [filteredData, setFilteredData] = useState(allData);
   const [ApprovedData, setApprovedData] = useState([initialState[0]]);
@@ -30,7 +30,6 @@ const Emptasktable = ({
   const [nonApprovedData, setNonApprovedData] = useState([initialState[0]]);
   const [edit, setEdit] = useState(true);
   const [added, setAdd] = useState([]);
-
   const [viewDetail, setViewDetail] = useState();
   const [ApplyLeave, setApplyLeave] = useState({
     date: " ",
@@ -174,17 +173,6 @@ const Emptasktable = ({
 
   const project = ["Office ui", "office data", "3d cad website"];
 
-  // const filterYear = () => {
-  //   const yearfilter = allData.filter((item) => {
-  //     Object.keys(item).map((element) => {
-  //       if (Object.keys(item)[1] === element) {
-  //         const data = item[element].split("/");
-  //         console.log(data);
-  //       }
-  //     });
-  //   });
-  // };
-  // console.log(filterYear());
   const onchangefilter = (e) => {};
 
   const infoDataTask = Object.keys(headerState[0]);
@@ -294,7 +282,7 @@ const Emptasktable = ({
       >
         {/*view detail information table */}
         {viewDetail ? (
-          <div className="bg-green-300">
+          <div className="min-h-[24vh] bg-indigo-300 pt-2 min-w-[100%] flex flex-column  items-center">
             <div className="flex flex-row ">
               {Object.keys(viewData).map((item, index) => {
                 if (index === 0) {
@@ -305,7 +293,7 @@ const Emptasktable = ({
                     <div key={index} className="flex flex-row">
                       <SingleDetail
                         title={infoDataTask[index]}
-                        singleData={Object.values(viewData)[index]}
+                        singleData={viewData[item]}
                       />
                     </div>
                   );
@@ -313,17 +301,18 @@ const Emptasktable = ({
                 return <div key={index}></div>;
               })}
             </div>
+
             <div className="flex flex-row ">
               {Object.keys(viewData).map((item, index) => {
                 if (index === 0) {
                   return <div key={index}></div>;
                 }
-                if (index === 5 || index === 6 || index === 7) {
+                if (index >= 5 && index <= 7) {
                   return (
                     <div key={index} className="flex flex-row">
                       <SingleDetail
                         title={infoDataTask[index]}
-                        singleData={Object.values(viewData)[index]}
+                        singleData={viewData[item]}
                       />
                     </div>
                   );
@@ -341,7 +330,7 @@ const Emptasktable = ({
                     <div key={index} className="flex flex-row">
                       <SingleDetail
                         title={infoDataTask[index]}
-                        singleData={Object.values(viewData)[index]}
+                        singleData={viewData[item]}
                       />
                     </div>
                   );
@@ -391,12 +380,49 @@ const Emptasktable = ({
                 return <div key={index}></div>;
               })}
             </div>
+            <div className="flex flex-row ">
+              {Object.keys(...updateTask).map((item, index) => {
+                if (index === 0) {
+                  return <div key={index}></div>;
+                }
+                if (index >= 5 && index <= 7) {
+                  return (
+                    <div key={index} className="flex flex-row">
+                      <SingleDetail
+                        title={infoDataTask[index]}
+                        singleData={Object.values(...updateTask)[index]}
+                      />
+                    </div>
+                  );
+                }
+                return <div key={index}></div>;
+              })}
+            </div>
+            <div className="flex flex-row ">
+              {Object.keys(...updateTask).map((item, index) => {
+                if (index === 0) {
+                  return <div key={index}></div>;
+                }
+                if (index > 7) {
+                  return (
+                    <div key={index} className="flex flex-row">
+                      <SingleDetail
+                        title={infoDataTask[index]}
+                        singleData={Object.values(...updateTask)[index]}
+                      />
+                    </div>
+                  );
+                }
+                return <div key={index}></div>;
+              })}
+            </div>
+
             <div>
               {updateTask.map((item, index) => {
                 return (
-                  <div key={index}>
+                  <div key={index} className=" min-w-[100%]">
                     <Paper elevation={5}>
-                      <div className="min-h-[15vh] bg-green-300 pt-2 min-w-[1200px] flex flex-column  items-center">
+                      <div className="bg-green-300 pt-2 min-w-[100%] flex flex-column  items-center">
                         {/* form*/}
                         <form
                           method="GET"
@@ -404,113 +430,50 @@ const Emptasktable = ({
                           onSubmit={ontaskUpdateSubmit}
                         >
                           <div className="flex flex-row">
-                            <div className=" min-h-[8vh]   flex flex-row ">
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-centerflex-row py-1 px-2 ">
-                                  <label htmlFor=" worked">worked hours </label>
-                                  <input
-                                    id=" worked"
-                                    type="text"
-                                    name=" worked"
-                                    form="my_form2"
-                                    placeholder=" worked hours "
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
+                            <div className="flex flex-row">
+                              <div className=" min-h-[8vh]   flex flex-row ">
+                                <Paper
+                                  elevation={8}
+                                  className="flex justify-center p-1 m-1"
+                                >
+                                  <div className=" addEmpForm flex items-center flex-row py-1 px-1  ">
+                                    <div className="max-w-[100px] mr-3">
+                                      <label htmlFor="empremarks">
+                                        approver remarks
+                                      </label>
+                                    </div>
+                                    <textarea
+                                      id="empremarks"
+                                      name="empremarks"
+                                      type="text"
+                                      rows="2"
+                                      cols="30"
+                                      form="my_form2"
+                                      placeholder="employee remarks about project task"
+                                      onChange={(e) => {
+                                        onChangeUpdate(e);
+                                      }}
+                                      className="resize-none border-purple-800 rounded-md border-2 -ml-10"
+                                      maxLength="70"
+                                    ></textarea>
+                                  </div>
+                                </Paper>
 
-                              <Paper
-                                elevation={8}
-                                className=" flex justify-start p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor="clocked">
-                                    clocked hours{" "}
-                                  </label>
-                                  <input
-                                    id="clocked"
-                                    type="text"
-                                    name="clocked"
-                                    form="my_form2"
-                                    placeholder="clocked hours"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    size="12"
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor=" utilised">
-                                    utilised hours{" "}
-                                  </label>
-                                  <input
-                                    id=" utilised"
-                                    type="text"
-                                    name=" utilised"
-                                    form="my_form2"
-                                    placeholder=" utilised hours"
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center flex-row py-1 px-1  ">
-                                  <label htmlFor="empremarks">
-                                    Employee Remarks
-                                  </label>
-                                  <textarea
-                                    id="empremarks"
-                                    name="empremarks"
-                                    type="text"
-                                    rows="2"
-                                    cols="30"
-                                    form="my_form2"
-                                    placeholder="employee remarks about project task"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="resize-none border-purple-800 rounded-md border-2 -ml-10"
-                                    maxLength="70"
-                                  ></textarea>
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className="flex addEmpForm items-center flex-row py-1 px-1  ">
-                                  <button
-                                    type="submit"
-                                    form="my_form2"
-                                    className="bg-green-300 py-3 px-1 text-white hover:bg-red-300"
-                                  >
-                                    Submit
-                                  </button>
-                                </div>
-                              </Paper>
+                                <Paper
+                                  elevation={8}
+                                  className="flex justify-center p-1 m-1"
+                                >
+                                  <div className="flex addEmpForm items-center flex-row py-1 px-1  ">
+                                    <button
+                                      type="submit"
+                                      form="my_form2"
+                                      className="py-3 px-1 bg-indigo-300 text-white hover:bg-red-300 rounded-lg"
+                                    >
+                                      Approve
+                                    </button>
+                                  </div>
+                                </Paper>
+                              </div>
                             </div>
                           </div>
                         </form>
@@ -525,11 +488,12 @@ const Emptasktable = ({
       </Paper>
 
       {/* add idle work form */}
-      {IdleAddShow ? (
-        <IdleAdd
+      {AssigntaskShow ? (
+        <CreateAssigntask
           initialState={[initialState[0]]}
-          trigger={IdleAddShow}
-          settrigger={setIdleAddShow}
+          trigger={AssigntaskShow}
+          settrigger={setAssigntaskShow}
+          today={today()}
         />
       ) : null}
 
@@ -546,7 +510,7 @@ const Emptasktable = ({
                 return (
                   <div key={index}>
                     <Paper elevation={5}>
-                      <div className="min-h-[13vh] bg-green-300 pt-2 min-w-[1200px] flex flex-column  items-center">
+                      <div className="bg-indigo-300 pt-2 min-w-[1200px] flex flex-column  items-center">
                         {/* form*/}
                         <form
                           method="GET"
@@ -554,111 +518,50 @@ const Emptasktable = ({
                           onSubmit={ontaskUpdateSubmit}
                         >
                           <div className="flex flex-row">
-                            <div className="bg-green-300 min-h-[8vh]   flex flex-row ">
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-centerflex-row py-1 px-2 ">
-                                  <label htmlFor=" worked">worked hours </label>
-                                  <input
-                                    id=" worked"
-                                    type="text"
-                                    name=" worked"
-                                    form="my_form2"
-                                    placeholder=" worked hours "
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
+                            <div className="flex flex-row">
+                              <div className=" flex flex-row ">
+                                <Paper
+                                  elevation={8}
+                                  className="flex justify-center p-1 m-1"
+                                >
+                                  <div className=" addEmpForm flex items-center flex-row py-1 px-1  ">
+                                    <div className="max-w-[100px] mr-3">
+                                      <label htmlFor="empremarks">
+                                        approver remarks
+                                      </label>
+                                    </div>
+                                    <textarea
+                                      id="empremarks"
+                                      name="empremarks"
+                                      type="text"
+                                      rows="2"
+                                      cols="30"
+                                      form="my_form2"
+                                      placeholder="employee remarks about project task"
+                                      onChange={(e) => {
+                                        onChangeUpdate(e);
+                                      }}
+                                      className="resize-none border-purple-800 rounded-md border-2 -ml-10"
+                                      maxLength="70"
+                                    ></textarea>
+                                  </div>
+                                </Paper>
 
-                              <Paper
-                                elevation={8}
-                                className=" flex justify-start p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor="clocked">clocked hours</label>
-                                  <input
-                                    id="clocked"
-                                    type="text"
-                                    name="clocked"
-                                    form="my_form2"
-                                    placeholder="clocked hours"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    size="12"
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor=" utilised">
-                                    utilised hours
-                                  </label>
-                                  <input
-                                    id=" utilised"
-                                    type="text"
-                                    name=" utilised"
-                                    form="my_form2"
-                                    placeholder=" utilised hours"
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center flex-row py-1 px-1  ">
-                                  <label htmlFor="empremarks">
-                                    Employee Remarks
-                                  </label>
-                                  <textarea
-                                    id="empremarks"
-                                    name="empremarks"
-                                    type="text"
-                                    rows="2"
-                                    cols="30"
-                                    form="my_form2"
-                                    placeholder="employee remarks about project task"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="resize-none border-purple-800 rounded-md border-2 -ml-10"
-                                    maxLength="70"
-                                  ></textarea>
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className="flex addEmpForm items-center flex-row py-1 px-1  ">
-                                  <button
-                                    type="submit"
-                                    form="my_form2"
-                                    className="bg-green-300 py-3 px-1 text-white hover:bg-red-300"
-                                  >
-                                    Submit
-                                  </button>
-                                </div>
-                              </Paper>
+                                <Paper
+                                  elevation={8}
+                                  className="flex justify-center p-1 m-1"
+                                >
+                                  <div className="flex addEmpForm items-center flex-row py-1 px-1  ">
+                                    <button
+                                      type="submit"
+                                      form="my_form2"
+                                      className="py-3 px-1 bg-indigo-300 text-white hover:bg-red-300 rounded-lg"
+                                    >
+                                      Approve
+                                    </button>
+                                  </div>
+                                </Paper>
+                              </div>
                             </div>
                           </div>
                         </form>
@@ -690,7 +593,7 @@ const Emptasktable = ({
                 <Tooltip
                   title="create"
                   onClick={() => {
-                    setIdleAddShow(!IdleAddShow);
+                    setAssigntaskShow(!AssigntaskShow);
                   }}
                 >
                   <IconButton>
@@ -699,11 +602,11 @@ const Emptasktable = ({
                 </Tooltip>
                 <button
                   onClick={() => {
-                    setIdleAddShow(!IdleAddShow);
+                    setAssigntaskShow(!AssigntaskShow);
                   }}
                   className="  flex  p-1 rounded-lg   items-center"
                 >
-                  Idle
+                  Create task
                 </button>
               </div>
               <div>
@@ -825,7 +728,7 @@ const Emptasktable = ({
           <div className="flex flex-row items-center justify-between mx-2 -mb-2">
             <div className="flex flex-row items-center space-x-4">
               <h1 className="font-sans md:font-serif  text-base  leading-5 uppercase">
-                non approved
+                approved
               </h1>
               <label htmlFor="search"></label>
               <Tooltip title="search">
@@ -864,7 +767,7 @@ const Emptasktable = ({
           </div>
           <div>
             <table className="EmpLeaveTable min-w-[1800px]  ">
-              <thead className=" py-2">
+              <thead>
                 <tr>
                   <Tableheader
                     initialState={headerState[0]}
@@ -914,4 +817,4 @@ const Emptasktable = ({
   );
 };
 
-export default Emptasktable;
+export default AssigntaskTable;

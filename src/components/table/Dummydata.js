@@ -8,7 +8,6 @@ const Dummydata = [
     clocked: "8",
     utilised: "8.30",
     efficiency: "efficiency:100%",
-
     project1: "camera",
     task1: "take",
     remarks1: "creating dash board ",

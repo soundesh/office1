@@ -13,8 +13,8 @@ const EmpYearLeave = () => {
   const [initialState] = useState(empyearleave);
 
   return (
-    <div className="boxDataShdow rounded-lg min-h-52 h-56 max-w-[310px]  min-w-[148px] bg-white">
-      <h1 className="hover:bg-red-300 rounded-full bg-blue-200 py-1.5 flex justify-center mt-2 items-center ">
+    <div className="boxDataShdow rounded-lg min-h-56 h-56 max-w-[330px]  min-w-[200px] bg-white">
+      <h1 className="hover:bg-red-300 rounded-full bg-blue-200 py-1.5 flex justify-center items-center ">
         Available Leaves
       </h1>
       <div className="my-1 flex justify-center mt-1">

@@ -7,7 +7,7 @@ const Header = ({ pagehead, pageicon }) => {
   return (
     <React.Fragment>
       <Paper elevation={5}>
-        <div className="text-red-900 mb-1">
+        <div className="text-gray-500 mb-1">
           <div className="pl-10 align-center ">
             <h6>welcome avinash</h6>
           </div>

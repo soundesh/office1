@@ -27,7 +27,7 @@ const menuItem = [
   },
 
   {
-    path: "/analytics",
+    path: "/assigntask",
     name: "Analytics",
     icon: <i className="fa-regular fa-clipboard"></i>,
     list: {},
@@ -49,6 +49,52 @@ const menuItem = [
     name: "Product List",
     icon: <i className="material-icons">logout</i>,
     list: {},
+  },
+  {
+    path: "/hrdashboard",
+    name: "Dashboard",
+    list: {
+      0: "Add/Remove items",
+      1: "Request/Approval",
+      2: "create tasks",
+    },
+    //list: { 0: "Alex", 1: "Bob", 2: "Johny", 3: "Atta" },
+  },
+  {
+    name: "Users",
+    icon: <i className="fa fa-users"></i>,
+    path: "/hruser",
+    totalData: "865",
+  },
+  {
+    name: "Holidays",
+    icon: <i className="fa fa-thumbs-up text-3xl" aria-hidden="true"></i>,
+    path: "/hrholidays",
+    totalData: "0",
+  },
+  {
+    name: "Events",
+    icon: <i className="fa fa-calendar" aria-hidden="true"></i>,
+    path: "/hrevents",
+    totalData: "0",
+  },
+  {
+    name: "Payroll",
+    icon: <i className="fa fa-credit-card-alt" aria-hidden="true"></i>,
+    path: "/hrpayments",
+    totalData: "0",
+  },
+  {
+    name: "Accounts",
+    icon: <i className="fa fa-calculator" aria-hidden="true"></i>,
+    path: "/hraccounts",
+    totalData: "0",
+  },
+  {
+    name: "Reports",
+    icon: <i className="fa fa-exclamation-circle" aria-hidden="true"></i>,
+    path: "/hrreports",
+    totalData: "0",
   },
 ];
 const Sidelistbar = ({ usingPath }) => {

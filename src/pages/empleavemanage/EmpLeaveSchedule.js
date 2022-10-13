@@ -4,6 +4,7 @@ import ProfileCard from "../../components/profileComponet/ProfileCard";
 import EmpYearLeave from "../../components/OfficeLeave/EmpYearLeave";
 import OfficeYearLeave from "../../components/OfficeLeave/OfficeYearLeave";
 import EmpLeaveTable from "../../components/OfficeLeave/EmpLeaveTable";
+import ThismonthLeave from "../../components/Hrcomponents/HrHolidays/ThismonthLeave";
 const inititalState2 = [
   {
     id: "1200",
@@ -167,13 +168,16 @@ const EmpLeaveSchedule = () => {
         />
       </div>
       <div className="flex flex-row space-x-1 mb-1">
-        <div>
+        <div className="bg-white">
           <ProfileCard />
         </div>
-        <div className="bg-white flex items-center">
+        <div className="bg-white flex ">
           <EmpYearLeave />
         </div>
-        <div>
+        <div className="bg-white">
+          <ThismonthLeave />
+        </div>
+        <div className="bg-white">
           <OfficeYearLeave />
         </div>
       </div>

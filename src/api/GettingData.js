@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
 function GettingData() {
   const [Data, setData] = useState([]);
   const [callback, setCallback] = useState(false);

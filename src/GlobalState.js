@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 import GettingData from "./api/GettingData";
-import axios from "axios";
 
 export const GlobalState = createContext();
 

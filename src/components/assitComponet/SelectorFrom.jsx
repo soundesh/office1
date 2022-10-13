@@ -15,7 +15,7 @@ const SelectorFrom = ({ labeled, sizewidth, OptionData, datavalue }) => {
           {OptionData.map((item) => {
             return (
               <option value={item} key={item}>
-                {item}{" "}
+                {item}
               </option>
             );
           })}

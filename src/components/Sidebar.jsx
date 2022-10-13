@@ -23,7 +23,7 @@ const menuItem = [
   },
 
   {
-    path: "/analytics",
+    path: "/assigntask",
     name: "Analytics",
     icon: <i className="fa-regular fa-clipboard"></i>,
   },
@@ -31,6 +31,49 @@ const menuItem = [
     path: "/comment",
     name: "Comment",
     icon: <i className="fas fa-calendar-days"></i>,
+  },
+
+  {
+    path: "/hrdashboard",
+    name: "Hr Dashboard",
+    icon: <i className="material-icons">dashboard</i>,
+  },
+
+  {
+    name: "Users",
+    icon: <i className="fa fa-users"></i>,
+    path: "/hruser",
+    totalData: "865",
+  },
+  {
+    name: "Holidays",
+    icon: <i className="fa fa-thumbs-up text-3xl" aria-hidden="true"></i>,
+    path: "/hrholidays",
+    totalData: "0",
+  },
+  {
+    name: "Events",
+    icon: <i className="fas fa-calendar-days"></i>,
+    path: "/hrevents",
+    totalData: "0",
+  },
+  {
+    name: "Payroll",
+    icon: <i className="fa fa-credit-card-alt" aria-hidden="true"></i>,
+    path: "/hrpayments",
+    totalData: "0",
+  },
+  {
+    name: "Accounts",
+    icon: <i className="fa fa-calculator" aria-hidden="true"></i>,
+    path: "/hraccounts",
+    totalData: "0",
+  },
+  {
+    name: "Reports",
+    icon: <i className="fa fa-exclamation-circle" aria-hidden="true"></i>,
+    path: "/hrreports",
+    totalData: "0",
   },
 ];
 const menuItem1 = [

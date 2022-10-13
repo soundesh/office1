@@ -5,9 +5,9 @@ import Tooltip from "@mui/material/Tooltip";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import Paper from "@mui/material/Paper";
 import CreateIcon from "@mui/icons-material/Create";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./EmpLeaveTable.css";
-
+import SingleDetail from "../assitComponet/SingleDetail";
 const EmpLeaveTable = ({
   initialState,
   headerState,
@@ -166,7 +166,7 @@ const EmpLeaveTable = ({
     <Paper>
       {viewDetail ? (
         <Paper elevation={5}>
-          <div className="max-h-[24vh]  bg-cyan-200 px-16 py-2">
+          <div className="max-h-[26vh]  bg-cyan-200 px-16 py-2">
             <div className="flex flex-row  ">
               <div className="flex flex-row">
                 {Object.keys(viewData).map((item, index) => {
@@ -176,17 +176,10 @@ const EmpLeaveTable = ({
                   if (index <= 5) {
                     return (
                       <div key={index} className="flex flex-row   ">
-                        <Paper
-                          elevation={8}
-                          className="min-w-[200px] flex justify-center p-1 m-1"
-                        >
-                          <div className="flex items-center flex-row py-1 px-2 ">
-                            <h3> {item}</h3>
-                            <div className="min-w-[70px] flex justify-center px-1">
-                              : {viewData[item]}
-                            </div>
-                          </div>
-                        </Paper>
+                        <SingleDetail
+                          title={item}
+                          singleData={viewData[item]}
+                        />
                       </div>
                     );
                   }
@@ -205,17 +198,7 @@ const EmpLeaveTable = ({
                 if (index > 5 && index <= 9) {
                   return (
                     <div key={index} className="flex flex-row">
-                      <Paper
-                        elevation={8}
-                        className="min-w-[200px] flex justify-center p-1 m-1"
-                      >
-                        <div className="flex items-center flex-row py-1 px-2 ">
-                          <h3> {item}</h3>
-                          <div className="min-w-[70px] flex justify-center px-1">
-                            : {viewData[item]}
-                          </div>
-                        </div>
-                      </Paper>
+                      <SingleDetail title={item} singleData={viewData[item]} />
                     </div>
                   );
                 }
@@ -234,17 +217,7 @@ const EmpLeaveTable = ({
                 if (index >= 11) {
                   return (
                     <div key={index} className="flex flex-row">
-                      <Paper
-                        elevation={8}
-                        className="min-w-[200px] flex justify-center p-1 m-1"
-                      >
-                        <div className="flex items-center flex-row py-1 px-2 ">
-                          <h3> {item}</h3>
-                          <div className="min-w-[70px] flex justify-center px-1">
-                            : {viewData[item]}
-                          </div>
-                        </div>
-                      </Paper>
+                      <SingleDetail title={item} singleData={viewData[item]} />
                     </div>
                   );
                 }
@@ -256,17 +229,7 @@ const EmpLeaveTable = ({
                 if (index === 10) {
                   return (
                     <div key={index}>
-                      <Paper
-                        elevation={8}
-                        className="min-w-[200px] flex justify-center p-1 m-1"
-                      >
-                        <div className="flex items-center flex-row py-1 px-2 ">
-                          <h3> {item}</h3>
-                          <div className="min-w-[70px] flex justify-center px-1">
-                            : {viewData[item]}
-                          </div>
-                        </div>
-                      </Paper>
+                      <SingleDetail title={item} singleData={viewData[item]} />
                     </div>
                   );
                 }

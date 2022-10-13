@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./EmpolyeeTable.css";
+import Tableheader from "../assitComponet/Tableheader";
 import Tooltip from "@mui/material/Tooltip";
 const EmpolyeeTable = ({ initialData, title }) => {
   const [initialState] = useState(initialData);
@@ -8,25 +9,14 @@ const EmpolyeeTable = ({ initialData, title }) => {
       <h1 className="flex justify-center bg-green-400 h-8 items-center">
         {title}
       </h1>
-      <div className="mb-1 h-56 overflow-auto ">
-        <table className="Emptable">
+      <div className="mb-1 h-64 overflow-auto ">
+        <table className="Emptable min-w-[1800px]">
           <thead className=" py-2">
             <tr>
-              {Object.keys(initialState[0]).map((item, index) => {
-                if (Object.keys(item)[0] === Object.keys(item)[index]) {
-                  return <React.Fragment key={index}></React.Fragment>;
-                }
-                return (
-                  <th
-                    className="bg-indigo-400 font-serif leading-5 font-medium italic hover:not-italic"
-                    key={index}
-                  >
-                    <p className="border-2   rounded-lg py-1 grid justify-items-center ">
-                      {item}
-                    </p>
-                  </th>
-                );
-              })}
+              <Tableheader
+                initialState={initialState[0]}
+                theadColor="bg-indigo-400"
+              />
             </tr>
           </thead>
           <tbody>
@@ -35,7 +25,7 @@ const EmpolyeeTable = ({ initialData, title }) => {
                 <tr key={index}>
                   {Object.keys(item).map((data, index) => {
                     if (Object.keys(item)[0] === Object.keys(item)[index]) {
-                      return <React.Fragment key={index}></React.Fragment>;
+                      return <td key={index}></td>;
                     }
                     return (
                       <Tooltip
