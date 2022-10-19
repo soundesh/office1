@@ -9,25 +9,30 @@ import UserCreate from "./UserCreate";
 const initialState = [
   {
     id: "2333332",
-
     empId: "RIM-567",
-    username: "parimala",
+    username: "soundesh",
     fristName: "dummy Name",
     LastName: "last Name",
-    userDate: "2/03/2018",
+    joinDate: "2/03/2018",
     userImg:
       "https://www.usnews.com/object/image/00000163-652c-d812-a367-eded8f0e0000/180515-10thingselonmusk-editorial.jpg?update-time=1526411160555&size=responsive970",
     email: "parimala@gmail.com",
     role: "super admin",
-    Job: "CEO",
+    department: "web development",
+    Job: "Full stack developer",
+    skill: "java angular ,c program ,",
+    experiance: "1",
+    workedarea: "front end",
+    salary: "15000",
+    salarystatus: "pending",
+    project: [],
+    projectTeam: [],
     mobile: "123456789",
-
     password: "",
     confirmpassword: "",
   },
   {
     id: "2333332",
-
     empId: "RIM-567",
     username: "soundesh",
     fristName: "dummy Name",
@@ -35,11 +40,18 @@ const initialState = [
     userImg:
       "https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg?w=400&h=300&c=crop",
     email: "soundeshss2gmail.com",
-    role: "employee",
-    Job: "software development",
+    role: "super admin",
+    department: "web development",
+    Job: "senior developer",
+    skill: "java angular ,c program ,",
+    experiance: "1",
+    workedarea: "front end",
+    salary: "15000",
+    salarystatus: "done",
+    project: [],
+    projectTeam: [],
     mobile: "123456789",
-
-    userDate: "2/03/2018",
+    joinDate: "2/03/2018",
     password: "",
     confirmpassword: "",
   },
@@ -52,11 +64,18 @@ const initialState = [
     userImg:
       "https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg?w=400&h=300&c=crop",
     email: "shyamkumardp@gmail.com",
+    department: "web development",
+    Job: "Full stack developer",
+    skill: "java angular ,c program ,",
+    experiance: "1",
+    workedarea: "front end",
+    salary: "15000",
+    salarystatus: "done",
+    project: [],
+    projectTeam: [],
     role: "employee",
-    Job: "software development",
     mobile: "123456789",
-
-    userDate: "2/03/2018",
+    joinDate: "2/03/2018",
     password: "",
     confirmpassword: "",
   },
@@ -69,10 +88,20 @@ const initialState = [
     userImg:
       "https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg?w=400&h=300&c=crop",
     email: "sandeep@gmail.com",
+    department: "web development",
+    Job: "Full stack developer",
+    skill: "java angular ,c program ,",
+    experiance: "1",
+    workedarea: "front end",
+    salary: "15000",
+    salarystatus: "pending",
+
+    project: [],
+    projectTeam: [],
     role: "hradmin",
-    Job: "software development",
+
     mobile: "123456789",
-    userDate: "2/03/2018",
+    joinDate: "2/03/2018",
     password: "",
     confirmpassword: "",
   },
@@ -85,11 +114,18 @@ const initialState = [
     userImg:
       "https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg?w=400&h=300&c=crop",
     email: "soundeshss@gmail.com",
+    department: "web development",
+    Job: "Full stack developer",
+    skill: "java angular ,c program ,",
+    experiance: "1",
+    workedarea: "front end",
+    salary: "15000",
+    salarystatus: "yes",
+    project: [],
+    projectTeam: [],
     role: "team lead",
-    Job: "software development",
     mobile: "123456789",
-
-    userDate: "2/03/2018",
+    joinDate: "2/03/2018",
     password: "",
     confirmpassword: "",
   },
@@ -102,11 +138,18 @@ const initialState = [
     userImg:
       "https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg?w=400&h=300&c=crop",
     email: "soundeshss@gmail.com",
+    department: "web development",
+    Job: "Full stack developer",
+    skill: "java angular ,c program ,",
+    experiance: "",
+    workedarea: "front end",
+    salary: "15000",
+    salarystatus: "pending",
+    project: [],
+    projectTeam: [],
     role: "employee",
-    Job: "software development",
     mobile: "123456789",
-
-    userDate: "2/03/2018",
+    joinDate: "2/03/2018",
     password: "",
     confirmpassword: "",
   },
@@ -223,14 +266,14 @@ const Hrusertable = () => {
       </Paper>
       <div className="mt-3">
         <Paper>
-          <table className="w-full min-w-[700px] overflow-auto px-3">
+          <table className=" Hrusertable  w-full min-w-[700px] overflow-auto px-3">
             <thead className="border-b-4 ">
               <tr>
                 <th>Name</th>
 
                 <th>Present</th>
 
-                <th>Role</th>
+                <th>join date</th>
 
                 <th>Job</th>
 
@@ -264,7 +307,7 @@ const Hrusertable = () => {
                       </div>
                     </td>
                     <td>
-                      <div className="bg-red-400 text-white px-1 max-w-[100px] rounded-lg">
+                      <div className="bg-red-400 text-white px-1 min-w-[100px] flex justify-center rounded-lg">
                         <h3 className="text-xl">{item.role}</h3>
                       </div>
                     </td>

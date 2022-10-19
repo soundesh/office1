@@ -42,7 +42,6 @@ const Emptasktable = ({
     reasonleave: "",
   });
   const [viewData, setViewData] = useState(initialState[0]);
-  const [editData, setEditData] = useState([initialState[0]]);
   const [addInput] = useState(() => {
     const data = Object.keys(initialState[0]);
     var newObj = {};
@@ -109,7 +108,6 @@ const Emptasktable = ({
   };
 
   const OnhandleEdit = (item) => {
-    setEditData([item]);
     setEdit(!edit);
     setUpdateTask([item]);
     setUpdateTaskData(item);

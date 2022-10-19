@@ -101,3 +101,6 @@ main {
   /* z-index: 1; */
   box-shadow: 0px 0px 1px rgb(212, 212, 212) !important;
 }
+datalist:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}

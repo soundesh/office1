@@ -76,16 +76,11 @@ const initialState = [
 const OfficeYearLeave = () => {
   const [initialStated] = useState(initialState);
 
-  const [leaveType, setleaveType] = useState([
-    "Festival",
-    "RH",
-    "General",
-    "National",
-  ]);
+  const [leaveType] = useState(["Festival", "RH", "General", "National"]);
   const [singleleaveType, setSingleleaveType] = useState("Festival");
 
   return (
-    <div className="items-center min-h-52 bg-white  ">
+    <div className="items-center min-h-52 bg-white rounded-lg font-sans ">
       <div className="flex flex-row  ">
         {leaveType.map((item, index) => {
           return (
@@ -121,7 +116,7 @@ const OfficeYearLeave = () => {
                 </div>
               );
             }
-            return <></>;
+            return <React.Fragment key={index}></React.Fragment>;
           })}
         </div>
       </div>

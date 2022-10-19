@@ -2,7 +2,15 @@ import { Paper } from "@mui/material";
 import React, { useState } from "react";
 import Dropdown from "../../assitComponet/Dropdown";
 import "./Hrholidays.css";
-const CreateLeaveholidays = ({ settrigger, trigger, editor, editData }) => {
+const CreateLeaveholidays = ({
+  settrigger,
+  trigger,
+  editor,
+  editData,
+  onhandleDelete,
+  deletetrigger,
+  setdeletetrigger,
+}) => {
   const [CreateTaskData, setCreateTaskData] = useState(() => {
     if (editor) {
       return editData;
@@ -29,7 +37,7 @@ const CreateLeaveholidays = ({ settrigger, trigger, editor, editData }) => {
       console.log("submit");
     }
   };
-  console.log(CreateTaskData);
+
   //create data list dropdown
   const LeavetypeArray = ["Festival", "RH", "General", "National"];
   return (
@@ -38,7 +46,7 @@ const CreateLeaveholidays = ({ settrigger, trigger, editor, editData }) => {
         <div className="IdleAdd-inner bg-pink-400">
           <Paper elevation={10}>
             <button
-              className="close-btn bg-red-600 text-white  addEmpForm px-2 rounded-full"
+              className="close-btn bg-red-600 text-white p-1 addEmpForm px-2 rounded-full"
               onClick={() => settrigger(!trigger)}
             >
               Close
@@ -106,8 +114,16 @@ const CreateLeaveholidays = ({ settrigger, trigger, editor, editData }) => {
                   type="submit"
                   className="bg-indigo-400 px-4 py-2 rounded-full addEmpForm text-white hover:bg-red-300"
                 >
-                  {editor ? "update" : "submit"}
+                  {editor ? "update" : "Create"}
                 </button>
+
+                <div onClick={() => onhandleDelete(editData)}>
+                  {editor ? (
+                    <div className="bg-red-500 px-4 py-2 m-3 rounded-full addEmpForm text-white hover:bg-red-300">
+                      Delete
+                    </div>
+                  ) : null}
+                </div>
               </div>
             </Paper>
           </form>

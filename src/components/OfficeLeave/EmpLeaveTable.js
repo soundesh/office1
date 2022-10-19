@@ -31,7 +31,7 @@ const EmpLeaveTable = ({
     reasonleave: "",
   });
   const [viewData, setViewData] = useState(initialState[0]);
-  const [addInput, setAddInput] = useState(() => {
+  const [addInput] = useState(() => {
     const data = Object.keys(initialState[0]);
     var newObj = {};
     for (var i = 0; i < data.length; i++) {
@@ -166,7 +166,7 @@ const EmpLeaveTable = ({
     <Paper>
       {viewDetail ? (
         <Paper elevation={5}>
-          <div className="max-h-[26vh]  bg-cyan-200 px-16 py-2">
+          <div className="max-h-[28vh]  bg-cyan-200 px-16 py-2">
             <div className="flex flex-row  ">
               <div className="flex flex-row">
                 {Object.keys(viewData).map((item, index) => {
@@ -249,7 +249,7 @@ const EmpLeaveTable = ({
               className="flex flex row items-center space-x-10  "
             >
               <div className="space-y-1 ">
-                <div className="space-x-1 flex hover:bg-red-300 rounded-full bg-blue-200 justify-center p-3">
+                <div className="space-x-1 flex hover:bg-red-300 rounded-lg bg-blue-200 justify-center p-3">
                   <label htmlFor="to">Apply Date :</label>
                   <input
                     type="text"
@@ -263,7 +263,7 @@ const EmpLeaveTable = ({
                     }}
                   />
                 </div>
-                <div className="space-x-1  hover:bg-red-300 rounded-full justify-center bg-blue-200 pt-1 p-3">
+                <div className="space-x-1  hover:bg-red-300 rounded-lg justify-center bg-blue-200 pt-1 p-3">
                   <label htmlFor="leaveType">Leave type:</label>
                   <select
                     name="leaveType"
@@ -281,7 +281,7 @@ const EmpLeaveTable = ({
                   </select>
                 </div>
 
-                <div className="space-x-1 flex hover:bg-red-300 rounded-full justify-center bg-blue-200 pt-1 p-3">
+                <div className="space-x-1 flex hover:bg-red-300 rounded-lg justify-center bg-blue-200 pt-1 p-3">
                   <label htmlFor="to">Reason :</label>
                   <input
                     type="text"
@@ -294,7 +294,7 @@ const EmpLeaveTable = ({
                 </div>
               </div>
               <div className="space-y-1">
-                <div className="space-x-1  hover:bg-red-300 rounded-full bg-blue-200 justify-center  pt-1 p-3">
+                <div className="space-x-1  hover:bg-red-300 rounded-lg bg-blue-200 justify-center  pt-1 p-3">
                   <label htmlFor="to">From Date :</label>
                   <input
                     type="date"
@@ -305,7 +305,7 @@ const EmpLeaveTable = ({
                     }}
                   />
                 </div>
-                <div className="space-x-1  hover:bg-red-300 rounded-full bg-blue-200 justify-center pt-1 p-3">
+                <div className="space-x-1  hover:bg-red-300 rounded-lg bg-blue-200 justify-center pt-1 p-3">
                   <label htmlFor="to">Last Date :</label>
                   <input
                     type="date"
@@ -317,7 +317,7 @@ const EmpLeaveTable = ({
                   />
                 </div>
 
-                <div className="space-x-1 flex hover:bg-red-300 rounded-full bg-blue-200 justify-center  pt-1 p-3">
+                <div className="space-x-1 flex hover:bg-red-300 rounded-lg bg-blue-200 justify-center  pt-1 p-3">
                   <h1>Total Day : {totalDayLeave() || 0} </h1>
                 </div>
               </div>
@@ -341,7 +341,7 @@ const EmpLeaveTable = ({
 
                 <button
                   type="submit"
-                  className="hover:bg-red-300 rounded-full bg-blue-200  flex justify-center py-2 px-1 items-center"
+                  className="hover:bg-red-300 rounded-lg bg-blue-200  flex justify-center py-2 px-1 items-center"
                 >
                   Add Leave
                 </button>
@@ -361,7 +361,7 @@ const EmpLeaveTable = ({
               className="flex flex row items-center space-x-10  "
             >
               <div className="space-y-1 ">
-                <div className="space-x-1 flex hover:bg-red-300 rounded-full bg-blue-200 justify-center p-3">
+                <div className="space-x-1 flex hover:bg-red-300 rounded-lg bg-blue-200 justify-center p-3">
                   <label htmlFor="to">Apply Date :</label>
                   <input
                     type="text"
@@ -375,7 +375,7 @@ const EmpLeaveTable = ({
                     }}
                   />
                 </div>
-                <div className="space-x-1  hover:bg-red-300 rounded-full justify-center bg-blue-200 pt-1 p-3">
+                <div className="space-x-1  hover:bg-red-300 rounded-lg justify-center bg-blue-200 pt-1 p-3">
                   <label htmlFor="leaveType">Leave type:</label>
                   <select
                     name="leaveType"
@@ -394,7 +394,7 @@ const EmpLeaveTable = ({
                   </select>
                 </div>
 
-                <div className="space-x-1 flex hover:bg-red-300 rounded-full justify-center bg-blue-200 pt-1 p-3">
+                <div className="space-x-1 flex hover:bg-red-300 rounded-lg justify-center bg-blue-200 pt-1 p-3">
                   <label htmlFor="to">Reason :</label>
                   <input
                     type="text"
@@ -408,8 +408,8 @@ const EmpLeaveTable = ({
                 </div>
               </div>
               <div className="space-y-1">
-                <div className="space-x-1  hover:bg-red-300 rounded-full bg-blue-200 justify-center  pt-1 p-3">
-                  <label htmlFor="to">From Date :</label>
+                <div className="space-x-1  hover:bg-red-300 rounded-lg bg-blue-200 justify-center  pt-1 p-3">
+                  <label htmlFor="from">From Date :</label>
                   <input
                     type="date"
                     name="from"
@@ -420,7 +420,7 @@ const EmpLeaveTable = ({
                     }}
                   />
                 </div>
-                <div className="space-x-1  hover:bg-red-300 rounded-full bg-blue-200 justify-center pt-1 p-3">
+                <div className="space-x-1  hover:bg-red-300 rounded-lg bg-blue-200 justify-center pt-1 p-3">
                   <label htmlFor="to">Last Date :</label>
                   <input
                     type="date"
@@ -433,7 +433,7 @@ const EmpLeaveTable = ({
                   />
                 </div>
 
-                <div className="space-x-1 flex hover:bg-red-300 rounded-full bg-blue-200 justify-center  pt-1 p-3">
+                <div className="space-x-1 flex hover:bg-red-300 rounded-lg bg-blue-200 justify-center  pt-1 p-3">
                   <h1>Total Day : {totalDayLeave() || 0} </h1>
                 </div>
               </div>
@@ -458,7 +458,7 @@ const EmpLeaveTable = ({
 
                 <button
                   type="submit"
-                  className="hover:bg-red-300 rounded-full bg-blue-200  flex justify-center py-2 px-1 items-center"
+                  className="hover:bg-red-300 rounded-lg bg-blue-200  flex justify-center py-2 px-1 items-center"
                 >
                   Add Leave
                 </button>

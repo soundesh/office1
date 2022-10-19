@@ -30,7 +30,6 @@ const menuItem = [
     path: "/assigntask",
     name: "Analytics",
     icon: <i className="fa-regular fa-clipboard"></i>,
-    list: {},
   },
   {
     path: "/comment",
@@ -65,36 +64,49 @@ const menuItem = [
     icon: <i className="fa fa-users"></i>,
     path: "/hruser",
     totalData: "865",
+    list: {},
   },
   {
     name: "Holidays",
     icon: <i className="fa fa-thumbs-up text-3xl" aria-hidden="true"></i>,
     path: "/hrholidays",
     totalData: "0",
+    list: {},
   },
   {
     name: "Events",
     icon: <i className="fa fa-calendar" aria-hidden="true"></i>,
     path: "/hrevents",
     totalData: "0",
+    list: {},
   },
   {
     name: "Payroll",
     icon: <i className="fa fa-credit-card-alt" aria-hidden="true"></i>,
-    path: "/hrpayments",
+    path: "/hrpayroll",
     totalData: "0",
+    list: {},
   },
   {
     name: "Accounts",
     icon: <i className="fa fa-calculator" aria-hidden="true"></i>,
     path: "/hraccounts",
     totalData: "0",
+    list: {},
+  },
+  {
+    name: "Charts",
+    icon: <i className="fa-sharp fa-solid fa-chart-simple"></i>,
+    path: "/hrCharts",
+    totalData: "0",
+    list: {},
   },
   {
     name: "Reports",
     icon: <i className="fa fa-exclamation-circle" aria-hidden="true"></i>,
     path: "/hrreports",
     totalData: "0",
+    list: {},
   },
 ];
 const Sidelistbar = ({ usingPath }) => {

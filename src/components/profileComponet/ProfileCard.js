@@ -1,5 +1,6 @@
 import React from "react";
 import Profile from "./profile.jpg";
+
 const ProfileCard = () => {
   return (
     <div className="boxDataShdow rounded-lg bg-white min-h-56 addEmpForm  h-56 min-w-[330px] ml-1">

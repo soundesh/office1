@@ -80,7 +80,6 @@ const initialState = [
 const Hrholidaytable = () => {
   const [allData, setAllData] = useState(initialState);
   const [filteredData, setFilteredData] = useState(allData);
-  const [createleaveShow, setCreateleaveShow] = useState();
   const [userRegShow, setuserRegShow] = useState(false);
   const [editData, setEditData] = useState();
 
@@ -90,6 +89,18 @@ const Hrholidaytable = () => {
     setEdit(true);
     setEditData(item);
     setuserRegShow(true);
+  };
+
+  const onhandleDelete = (deleteItem) => {
+    if (window.confirm("please conform to delete")) {
+      const data = allData.filter((item) => {
+        return Object.values(item)[0] !== Object.values(deleteItem)[0];
+      });
+      setAllData(data);
+      setFilteredData(data);
+      setuserRegShow(!userRegShow);
+      console.log("You pressed OK!");
+    }
   };
 
   //   const sortedate = allData.sort(function compare(a, b) {
@@ -106,25 +117,20 @@ const Hrholidaytable = () => {
   //     return dateA - dateB;
   //   });
 
-  const sortemonth = allData.sort(function compare(a, b) {
-    var dateA = a.leavetype;
-    var dateB = a.leavetype;
-    return dateA - dateB;
-  });
-
   return (
-    <div className="bg-white pt-2">
+    <div className="databg pt-2">
       {userRegShow ? (
         <CreateLeaveholidays
           settrigger={setuserRegShow}
           trigger={userRegShow}
           editor={edit}
           editData={editData}
+          onhandleDelete={onhandleDelete}
         />
       ) : null}
       <Paper>
         <h1
-          className="text-xl ml-2 p-3 bg-indigo-300 max-w-[150px] rounded-lg addEmpForm "
+          className="text-xl ml-2 p-2 bg-indigo-300 max-w-[150px] rounded-lg addEmpForm "
           onClick={() => {
             setuserRegShow(true);
             setEdit(false);

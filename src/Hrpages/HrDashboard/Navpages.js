@@ -24,7 +24,7 @@ const Navpages = () => {
     {
       name: "Payroll",
       icon: <i className="fa fa-credit-card-alt"></i>,
-      path: "/hrpayments",
+      path: "/hrpayroll",
       totalData: "0",
     },
     {
@@ -45,7 +45,7 @@ const Navpages = () => {
       {pagelinkelist.map((item, index) => {
         return (
           <div
-            class="datalist text-green-600 bg-lime-200 addEmpForm flex flex-column "
+            className="datalist text-green-600 bg-lime-200 addEmpForm flex flex-column "
             key={index}
           >
             <NavLink to={item.path} className="links datalistrelated">

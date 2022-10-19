@@ -1,7 +1,6 @@
 import { Paper } from "@mui/material";
 import React, { useState } from "react";
 import "./Hrusertable.css";
-import Inputregister from "../../assitComponet/Inputregister";
 const UserCreate = ({ settrigger, trigger, editor, editData }) => {
   const [CreateTaskData, setCreateTaskData] = useState(() => {
     if (editor) {
@@ -16,7 +15,7 @@ const UserCreate = ({ settrigger, trigger, editor, editData }) => {
         email: "",
         mobile: "",
         role: "",
-        userDate: "",
+        joinDate: "",
         password: "",
         confirmpassword: "",
       };
@@ -184,13 +183,13 @@ const UserCreate = ({ settrigger, trigger, editor, editData }) => {
                       />
                     </div>
                     <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                      <label htmlFor=" userDate" className="min-w-[110px]">
+                      <label htmlFor="joinDate" className="min-w-[110px]">
                         create Date
                       </label>
                       <input
-                        id=" userDate"
+                        id="joinDate"
                         type="text"
-                        name=" userDate"
+                        name="joinDate"
                         defaultValue={CreateTaskData.userDate}
                         placeholder="please enter "
                         required

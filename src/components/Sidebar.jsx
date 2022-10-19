@@ -60,13 +60,20 @@ const menuItem = [
   {
     name: "Payroll",
     icon: <i className="fa fa-credit-card-alt" aria-hidden="true"></i>,
-    path: "/hrpayments",
+    path: "/hrpayroll",
     totalData: "0",
   },
   {
     name: "Accounts",
     icon: <i className="fa fa-calculator" aria-hidden="true"></i>,
     path: "/hraccounts",
+    totalData: "0",
+  },
+
+  {
+    name: "Charts",
+    icon: <i className="fa-sharp fa-solid fa-chart-simple"></i>,
+    path: "/hrCharts",
     totalData: "0",
   },
   {
@@ -84,6 +91,11 @@ const menuItem1 = [
   },
   {
     path: "/productList",
+    name: "Product List",
+    icon: <i className="material-icons">logout</i>,
+  },
+  {
+    path: "/forgot",
     name: "Product List",
     icon: <i className="material-icons">logout</i>,
   },
@@ -125,7 +137,7 @@ const Sidebar = ({ children }) => {
       {isOpen ? <Sidelistbar usingPath={usingPath} /> : null}
       <button onClick={toggle} className="sidebarBtn">
         <span className="dash-icon-arrow flex flex-end">
-          <i className="material-icons">settings</i>
+          <i className="material-icons animate-spin">settings</i>
         </span>
       </button>
       <main>{children}</main>

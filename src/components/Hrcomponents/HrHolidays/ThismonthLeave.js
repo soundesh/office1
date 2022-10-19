@@ -74,7 +74,7 @@ const initialState1 = [
   },
 ];
 const ThismonthLeave = () => {
-  const [allData, setAllData] = useState(initialState1);
+  const [allData] = useState(initialState1);
   const [filteredData, setFilteredData] = useState(allData);
 
   useEffect(() => {
@@ -89,10 +89,10 @@ const ThismonthLeave = () => {
       return dateA - dateB;
     });
     setFilteredData(sortemonth);
-  }, [setFilteredData]);
+  }, [allData]);
   return (
-    <div className="items-center min-h-52 bg-white  flex flex-column  items-center justify-center">
-      <h2 className="mt-1 text-xl   border-y-4 hover:border-b-4  py-1 rounded-lg   focus:border-blue-500  px-2 bg-green-300 hover:border-red-300 ">
+    <div className="items-center min-h-52 bg-white  flex flex-column rounded-lg items-center justify-center">
+      <h2 className="mt-1 text-xl    py-1 rounded-lg    px-2 bg-red-300 hover:border-red-300 ">
         {new Date().toLocaleString("default", { month: "long" })} Month Leave
       </h2>
       <div>
@@ -100,7 +100,7 @@ const ThismonthLeave = () => {
           {filteredData.map((item, index) => {
             return (
               <div key={index}>
-                <div className="flex flex-row space-x-4">
+                <div className="flex flex-row space-x-4 italic ">
                   <div className="min-w-[70px]">{item.leavedate}</div>
                   <div> {item.leavetype}</div>
                   <div>{item.holiday}</div>

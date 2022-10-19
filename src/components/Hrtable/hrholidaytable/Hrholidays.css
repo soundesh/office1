@@ -1,3 +1,19 @@
+.databg {
+  padding: 20px 20px;
+  min-width: 100px;
+  min-height: 100px;
+  display: flex;
+  flex: 1 1 auto;
+  position: relative;
+  margin: 5px;
+  background: #fff;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 7px;
+  overflow: auto;
+}
+
 .Hrholidaytable {
   border-collapse: collapse;
   background-color: white;

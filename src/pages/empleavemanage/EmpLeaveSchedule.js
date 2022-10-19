@@ -167,17 +167,17 @@ const EmpLeaveSchedule = () => {
           pageicon={<i className="fa fa-table"></i>}
         />
       </div>
-      <div className="flex flex-row space-x-1 mb-1">
-        <div className="bg-white">
+      <div className="flex flex-row space-x-1 mb-1 rounded-lg ">
+        <div className="bg-white rounded-lg">
           <ProfileCard />
         </div>
-        <div className="bg-white flex ">
+        <div className="bg-white flex rounded-lg">
           <EmpYearLeave />
         </div>
-        <div className="bg-white">
+        <div className="bg-white rounded-lg">
           <ThismonthLeave />
         </div>
-        <div className="bg-white">
+        <div className="bg-white rounded-lg">
           <OfficeYearLeave />
         </div>
       </div>

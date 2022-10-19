@@ -23,7 +23,7 @@ const Hruser = () => {
   };
 
   return (
-    <div className="bg-slate-100">
+    <div className="bg-slate-300">
       <div>
         <Header
           pagehead="User "
