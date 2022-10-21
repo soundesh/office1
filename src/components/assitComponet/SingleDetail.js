@@ -3,17 +3,13 @@ import Paper from "@mui/material/Paper";
 
 const SingleDetail = ({ title, singleData }) => {
   return (
-    <Paper elevation={8} className="flex justify-center p-1 m-1">
-      <div className="flex items-center flex-row py-1 px-2 ">
-        <h3 className="text-blue-500 font-serif font-medium italic hover:not-italic ">
-          {title}
-        </h3>
+    <div className="flex items-center flex-row py-1 px-2 ">
+      <h3 className="text-blue-500 font-serif font-medium ">{title}</h3>
 
-        <div className="text-gray-500   flex min-w-[150px] px-1 ">
-          : {singleData}
-        </div>
+      <div className="text-gray-500   flex min-w-[150px] px-1 ">
+        : {singleData}
       </div>
-    </Paper>
+    </div>
   );
 };
 

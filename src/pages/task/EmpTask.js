@@ -1,16 +1,19 @@
 import React from "react";
 import Header from "../Header";
 import Emptasktable from "../../components/emptask/Emptasktable";
+import NavbarHeader from "../NavbarHeader";
+import CrudTable from "../../components/assitComponet/table/CrudTable";
+import IdleADDing from "./IdleADDing";
 const inititalState1 = [
   {
-    id: "1233",
+    id: "1230",
     taskdate: "06/10/2022",
-    taskgiven: "anand kumar naveen",
+    taskgiven: "soundesh",
     project: "office ui office ui office ui office",
     task: "dashboard screen office ui office ui office",
     taskassigned: "soundesh",
-    empremarks: " officedashboard screen office ui office ui office",
     Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
     worked: "3",
     clocked: "8",
     utilised: "8.30",
@@ -20,61 +23,43 @@ const inititalState1 = [
 
   {
     id: "1231",
-    taskdate: "07/10/2021",
-    taskgiven: "anand",
-    project: "office ui",
-    task: "dashboard screen",
+    taskdate: "06/10/2022",
+    taskgiven: "soundesh",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
     taskassigned: "soundesh",
-    empremarks: "creating dash board",
-    Approverremarks: "creating dash board",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
     worked: "3",
     clocked: "8",
     utilised: "8.30",
     efficiency: "efficiency:100%",
     status: "No",
   },
-
   {
     id: "1232",
-    taskdate: "06/04/2022",
-    taskgiven: "anand",
-    project: "office ui",
-    task: "dashboard screen",
+    taskdate: "06/10/2022",
+    taskgiven: "parimala",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
     taskassigned: "soundesh",
-    empremarks: "creating dash board",
-    Approverremarks: "creating dash board",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
     worked: "3",
     clocked: "8",
     utilised: "8.30",
     efficiency: "efficiency:100%",
-    status: "yes",
+    status: "No",
   },
-
   {
-    id: "12331",
-    taskdate: "25/12/2020",
-    taskgiven: "anand",
-    project: "office ui",
-    task: "dashboard screen",
+    id: "1233",
+    taskdate: "06/10/2022",
+    taskgiven: "saranya",
+    project: "331 inspirational designs,",
+    task: "dashboard screen office ui office ui office",
     taskassigned: "soundesh",
-    empremarks: "creating dash board",
-    Approverremarks: "creating dash board",
-    worked: "3",
-    clocked: "8",
-    utilised: "8.30",
-    efficiency: "efficiency:100%",
-    status: "yes",
-  },
-
-  {
-    id: "123312",
-    taskdate: "08/10/2022",
-    taskgiven: "anand",
-    project: "office ui",
-    task: "dashboard screen",
-    taskassigned: "soundesh",
-    empremarks: "creating dash board",
-    Approverremarks: "creating dash board",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
     worked: "3",
     clocked: "8",
     utilised: "8.30",
@@ -83,42 +68,116 @@ const inititalState1 = [
   },
 
   {
-    id: "1233",
-    taskdate: "14/10/2022",
-    taskgiven: "anand",
-    project: "office ui",
-    task: "dashboard screen",
+    id: "1234",
+    taskdate: "06/10/2022",
+    taskgiven: "anand kumar naveen",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
     taskassigned: "soundesh",
-    empremarks: "creating dash board",
-    Approverremarks: "creating dash board",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
     worked: "3",
     clocked: "8",
     utilised: "8.30",
     efficiency: "efficiency:100%",
-    status: "yes",
+    status: "No",
+  },
+  {
+    id: "1235",
+    taskdate: "06/10/2022",
+    taskgiven: "anand kumar naveen",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
+    taskassigned: "soundesh",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
+    worked: "3",
+    clocked: "8",
+    utilised: "8.30",
+    efficiency: "efficiency:100%",
+    status: "No",
+  },
+
+  {
+    id: "1235",
+    taskdate: "06/10/2022",
+    taskgiven: "anand kumar naveen",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
+    taskassigned: "soundesh",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
+    worked: "3",
+    clocked: "8",
+    utilised: "8.30",
+    efficiency: "efficiency:100%",
+    status: "No",
+  },
+  {
+    id: "1235",
+    taskdate: "06/10/2022",
+    taskgiven: "anand kumar naveen",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
+    taskassigned: "soundesh",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
+    worked: "3",
+    clocked: "8",
+    utilised: "8.30",
+    efficiency: "efficiency:100%",
+    status: "No",
+  },
+  {
+    id: "1235",
+    taskdate: "06/10/2022",
+    taskgiven: "anand kumar naveen",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
+    taskassigned: "soundesh",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
+    worked: "3",
+    clocked: "8",
+    utilised: "8.30",
+    efficiency: "efficiency:100%",
+    status: "No",
+  },
+  {
+    id: "1235",
+    taskdate: "06/10/2022",
+    taskgiven: "anand kumar naveen",
+    project: "office ui office ui office ui office",
+    task: "dashboard screen office ui office ui office",
+    taskassigned: "soundesh",
+    Approverremarks: "creating dash boarddashboard screen office ui ",
+    empremarks: " officedashboard screen office ui office ui office",
+    worked: "3",
+    clocked: "8",
+    utilised: "8.30",
+    efficiency: "efficiency:100%",
+    status: "No",
   },
 ];
 const headerstate = [
-  {
-    id: "1233",
-    "Task date": "",
-    "Task Given": "",
-    Project: "",
-    Task: "",
-    "Task Assigned": "",
-    "Employee Remarks": "",
-    "Approver Remarks": "",
-    "Worked Hours": "",
-    "Clocked Hours": "",
-    "Utilised Hours": "",
-    Efficiency: "",
-    Status: "",
-  },
+  "id",
+  "Task date",
+  "Task Given",
+  "Project",
+  "Task",
+  "Task Assigned",
+  "Approver Remarks",
+  "Employee Remarks",
+  "Worked Hours",
+  "Clocked Hours",
+  "Utilised Hours",
+  "Efficiency",
+  "Status",
 ];
 
 const EmpTask = () => {
   return (
-    <div className="ml-1">
+    <div className="ml-1 bg-slate-100">
       <div>
         <Header
           pagehead="employee task"
@@ -126,9 +185,25 @@ const EmpTask = () => {
         />
       </div>
       <div>
+        <NavbarHeader />
+      </div>
+      <div>
+        <CrudTable
+          initialData={inititalState1}
+          headerData={headerstate}
+          title="Leave Status"
+          Design="bg-white  text-xs"
+          tableheight="max-h-[50vh]"
+          tableDesign=""
+          Addingcomponent={IdleADDing}
+          Adding={true}
+          CheckDeletecolor="bg-red-400"
+        />
+      </div>
+      <div>
         <Emptasktable
           initialState={inititalState1}
-          title="Not Approved task"
+          title="Task"
           headerState={headerstate}
           CheckDeletecolor="pink"
         />

@@ -181,6 +181,7 @@ const EmpLeaveSchedule = () => {
           <OfficeYearLeave />
         </div>
       </div>
+
       <div>
         <EmpLeaveTable
           initialState={inititalState2}

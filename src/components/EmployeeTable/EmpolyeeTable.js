@@ -5,8 +5,8 @@ import Tooltip from "@mui/material/Tooltip";
 const EmpolyeeTable = ({ initialData, title }) => {
   const [initialState] = useState(initialData);
   return (
-    <div className="w-[99.5%] ml-[0.25%]">
-      <h1 className="flex justify-center bg-green-400 h-8 items-center">
+    <div style={{ borderRadius: 20 }} className="w-[99.5%] ml-1 ">
+      <h1 className="flex justify-center bg-white h-8 items-center text-xl border-2 border-indigo-300 my-1">
         {title}
       </h1>
       <div className="mb-1 h-64 overflow-auto ">
@@ -33,7 +33,7 @@ const EmpolyeeTable = ({ initialData, title }) => {
                         title={`${Object.keys(item)[index]}`}
                       >
                         <td>
-                          <p className="border-2   rounded-lg py-2 grid justify-items-center ">
+                          <p className="border-2 rounded-lg py-2 grid justify-items-center ">
                             {item[data]}
                           </p>
                         </td>

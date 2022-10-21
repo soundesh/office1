@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import GlobalContext from "../context/GlobalContext";
 const Todayevent = () => {
   const state = useContext(GlobalContext);
-  const [dayevent, setDayevent] = useState();
 
   const data = state.savedEvents.map((item, index) => {
     if (

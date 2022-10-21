@@ -11,9 +11,9 @@ import { Tooltip } from "@mui/material";
 const EmpLeaves = ({ initialData }) => {
   const [initialState] = useState(initialData);
   return (
-    <div className="boxDataShdow rounded-lg bg-white  addEmpForm  min-h-52 h-56 min-w-[320px]  ">
-      <h1 className="flex justify-center mb-2">leave status</h1>
-      <div className="border-y-4 border-pink-400  rounded-3xl flex flex-row space-x-2 flex justify-center  items-center">
+    <div className="boxDataShdow rounded-lg   min-h-52 h-56 min-w-[270px]  ">
+      <h1 className="flex justify-center mb-2 text-xl">leave status</h1>
+      <div className="  rounded-3xl flex flex-row space-x-2 flex justify-center  items-center">
         <div className="rounded-lg space-y-3 h-36 overflow-auto overflow-hidde mt-2 mb-3  w-full ">
           <table className="min-w-[350px]">
             <thead className="bg-indigo-200">
@@ -24,7 +24,7 @@ const EmpLeaves = ({ initialData }) => {
                   }
                   return (
                     <th
-                      className="bg-indigo-400 font-serif leading-5 font-medium italic hover:not-italic"
+                      className=" font-serif leading-5 font-medium italic hover:not-italic"
                       key={index}
                     >
                       <p className="border-2   rounded-lg py-1 grid justify-items-center ">

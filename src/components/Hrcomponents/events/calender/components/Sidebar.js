@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import Todayevent from "./Todayevent";
 export default function Sidebar() {
   return (

@@ -11,8 +11,6 @@ import "./Emptasktable.css";
 import IdleAdd from "./IdleAdd";
 import SingleDetail from "../assitComponet/SingleDetail";
 
-import SelectorFrom from "../assitComponet/SelectorFrom";
-
 const Emptasktable = ({
   initialState,
   headerState,
@@ -189,168 +187,153 @@ const Emptasktable = ({
 
   return (
     <div>
-      <div className="flex flex-row itmes-center space-x-1 ">
-        <Paper
-          elevation={3}
-          className="overflow-auto py-1 max-w-[450px] flex flex-row items-center  p-1 space-x-1 justify-center"
-        >
-          <div className="flex flex-row  space-x-1  addEmpForm items-center hover:bg-red-300 rounded-lg bg-teal-300 justify-center  pt-2 p-2">
-            <input type="radio" id="html" name="fav_language" value="HTML" />
-            <SelectorFrom
-              labeled="Year"
-              OptionData={yearData()}
-              sizewidth="15"
-              Date="18 oct 2021"
-              onChange={onchangefilter}
-            />
-          </div>
-          <div className="flex flex-row  space-x-1  addEmpForm items-center hover:bg-red-300 rounded-lg bg-rose-300 justify-center  pt-2 p-2">
-            <input type="radio" id="html" name="fav_language" value="HTML" />
-            <SelectorFrom
-              labeled="Week"
-              OptionData={yearData()}
-              sizewidth="12"
-              Date="45"
-              onChange={onchangefilter}
-            />
-          </div>
-          <div className="flex flex-row  space-x-1  addEmpForm items-center hover:bg-red-300 rounded-lg bg-yellow-400 justify-center  pt-2 p-2">
-            <input type="radio" id="html" name="fav_language" value="HTML" />
-            <SelectorFrom
-              labeled="Month"
-              OptionData={yearData()}
-              sizewidth="15"
-              Date="december"
-              onChange={onchangefilter}
-            />
-          </div>
-        </Paper>
-
-        <Paper
-          elevation={3}
-          className="overflow-auto py-1 flex flex-row items-center  p-1  space-x-1 justify-center"
-        >
-          <div className="space-x-1  hover:bg-red-300  addEmpForm flex flex-row rounded-lg bg-blue-200 justify-center  pt-1 p-2">
-            <Paper>
-              <label htmlFor="to" className="mr-1">
-                From :
-              </label>
-
-              <input
-                type="date"
-                name="from"
-                className="outline-none"
-                onChange={(e) => {
-                  onChangeapplyLeave(e);
-                }}
-              />
-            </Paper>
-          </div>
-          <div className="space-x-1  hover:bg-red-300 flex  addEmpForm flex-row rounded-lg bg-blue-200 justify-center pt-1 p-2">
-            <Paper>
-              <label htmlFor="to" className="mr-1">
-                Last :
-              </label>
-              <input
-                type="date"
-                name="to"
-                className="outline-none"
-                onChange={(e) => {
-                  onChangeapplyLeave(e);
-                }}
-              />
-            </Paper>
-          </div>
-        </Paper>
-
-        <Paper
-          elevation={3}
-          className="flex flex-row p-1 space-x-1    min-w-[385px]  justify-center"
-        >
-          <div className=" flex flex-row min-w-[170px]  addEmpForm  space-x-1  items-center hover:bg-red-300 rounded-lg bg-teal-300 justify-center  px-2">
-            <SelectorFrom
-              labeled="Project"
-              OptionData={project}
-              sizewidth="14"
-              Date="18 oct 2021"
-            />
-          </div>
-          <div className="flex flex-row  space-x-1  addEmpForm items-center hover:bg-red-300 rounded-lg bg-rose-300 justify-center px-2 ">
-            <SelectorFrom
-              labeled="Task Assigned"
-              OptionData={project}
-              sizewidth="12"
-              Date="45"
-            />
-          </div>
-        </Paper>
-      </div>
-
       <Paper
         elevation={3}
         className="overflow-auto my-1 py-1 w-full flex flex-row min-h-[23vh] items-center justify-center  space-x-4"
       >
         {/*view detail information table */}
-        {viewDetail ? (
-          <div className="bg-green-300">
-            <div className="flex flex-row ">
-              {Object.keys(viewData).map((item, index) => {
-                if (index === 0) {
-                  return <div key={index}></div>;
-                }
-                if (index <= 4) {
+        <div className=" w-full ">
+          <Paper elevation={8}>
+            <div className="flex justify-center  lg:min-w-[700px] md:min-w-[1000px]  ml-2">
+              <div className="py-2 lg:min-w-[50%]">
+                {Object.keys(viewData).map((item, index) => {
+                  if (index === 0) {
+                    return <div key={index}></div>;
+                  }
+                  if (index > 6) {
+                    return <div key={index}></div>;
+                  }
                   return (
-                    <div key={index} className="flex flex-row">
-                      <SingleDetail
-                        title={infoDataTask[index]}
-                        singleData={Object.values(viewData)[index]}
-                      />
+                    <div key={index}>
+                      <div className=" mb-1 min-h-[70px] ">
+                        <p className="text-xs text-blue-500 font-serif min-w-[70px] lg:text-lg  md:text-lg ">
+                          {infoDataTask[index]}
+                        </p>
+                        <p className="text-gray-500 text-xs lg:text-sm md:text-sm flex max-w-[300px] px-3 py-1">
+                          {Object.values(viewData)[index]}
+                        </p>
+                      </div>
                     </div>
                   );
-                }
-                return <div key={index}></div>;
-              })}
-            </div>
-            <div className="flex flex-row ">
-              {Object.keys(viewData).map((item, index) => {
-                if (index === 0) {
-                  return <div key={index}></div>;
-                }
-                if (index === 5 || index === 6 || index === 7) {
-                  return (
-                    <div key={index} className="flex flex-row">
-                      <SingleDetail
-                        title={infoDataTask[index]}
-                        singleData={Object.values(viewData)[index]}
-                      />
+                })}
+              </div>
+              {edit ? (
+                <div className="py-2 ">
+                  {Object.keys(viewData).map((item, index) => {
+                    if (index === 0) {
+                      return <div key={index}></div>;
+                    }
+                    if (index < 7) {
+                      return <div key={index}></div>;
+                    }
+                    return (
+                      <div key={index}>
+                        <div className=" mb-1 min-h-[70px]">
+                          <p className="text-xs text-blue-500 font-serif min-w-[70px] lg:text-lg  md:text-lg ">
+                            {infoDataTask[index]}
+                          </p>
+                          <p className="text-gray-500 text-xs lg:text-sm md:text-sm flex max-w-[300px] px-3 py-1">
+                            {Object.values(viewData)[index]}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="py-2 ">
+                  <form
+                    method="GET"
+                    id="my_form2"
+                    onSubmit={ontaskUpdateSubmit}
+                  >
+                    {Object.keys(viewData).map((item, index) => {
+                      if (index === 0) {
+                        return <div key={index}></div>;
+                      }
+                      if (index === 7) {
+                        return (
+                          <div key={index} className=" mb-1 min-h-[70px]">
+                            <p className="text-xs text-blue-500 font-serif min-w-[70px] lg:text-lg  md:text-lg ">
+                              {infoDataTask[index]}
+                            </p>
+                            <p className="text-gray-500 text-xs lg:text-sm md:text-sm flex max-w-[300px] px-3 py-1">
+                              <textarea
+                                id="empremarks"
+                                name="empremarks"
+                                type="text"
+                                rows="3"
+                                cols="30"
+                                defaultValue={Object.values(viewData)[index]}
+                                form="my_form2"
+                                placeholder={infoDataTask[index]}
+                                onChange={(e) => {
+                                  onChangeUpdate(e);
+                                }}
+                                className="resize-none border-amber-800 rounded-md border-2 max-w-[100px] lg:min-w-[300px] md:min-w-[200px]"
+                                maxLength="70"
+                              ></textarea>
+                            </p>
+                          </div>
+                        );
+                      }
+                      if (index < 8) {
+                        return <div key={index}></div>;
+                      }
+
+                      if (index === Object.keys(viewData).length - 1) {
+                        return (
+                          <div key={index} className=" mb-1 min-h-[70px]">
+                            <p className="text-xs text-blue-500 font-serif min-w-[70px] lg:text-lg  md:text-lg ">
+                              {infoDataTask[index]}
+                            </p>
+                            <p className="text-gray-500 text-xs lg:text-sm md:text-sm flex  max-w-[300px] px-3 py-1">
+                              {Object.values(viewData)[index]}
+                            </p>
+                          </div>
+                        );
+                      }
+                      return (
+                        <div key={index}>
+                          <div className=" mb-1 min-h-[70px]">
+                            <p className="text-xs text-blue-500 font-serif min-w-[70px] lg:text-lg  md:text-lg ">
+                              {infoDataTask[index]}
+                            </p>
+                            <p className="text-gray-500 text-xs lg:text-sm md:text-sm flex max-w-[300px] px-3 py-1">
+                              <input
+                                id={Object.keys(viewData)[index]}
+                                type="text"
+                                name={Object.keys(viewData)[index]}
+                                defaultValue={Object.values(viewData)[index]}
+                                form="my_form2"
+                                placeholder={infoDataTask[index]}
+                                size="12"
+                                onChange={(e) => {
+                                  onChangeUpdate(e);
+                                }}
+                                className="resize-none border-amber-800 rounded-md border-2 max-w-[100px] md:min-w-[200px] lg:min-w-[300px] p-2"
+                              />
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+
+                    <div className="flex space-x-2 justify-center">
+                      <button
+                        type="submit"
+                        form="my_form2"
+                        className="inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                      >
+                        Submit
+                      </button>
                     </div>
-                  );
-                }
-                return <div key={index}></div>;
-              })}
+                  </form>
+                </div>
+              )}
             </div>
-            <div className="flex flex-row ">
-              {Object.keys(viewData).map((item, index) => {
-                if (index === 0) {
-                  return <div key={index}></div>;
-                }
-                if (index > 7) {
-                  return (
-                    <div key={index} className="flex flex-row">
-                      <SingleDetail
-                        title={infoDataTask[index]}
-                        singleData={Object.values(viewData)[index]}
-                      />
-                    </div>
-                  );
-                }
-                return <div key={index}></div>;
-              })}
-            </div>
-          </div>
-        ) : (
-          " "
-        )}
+          </Paper>
+        </div>
 
         {/*         
   {
@@ -369,157 +352,6 @@ const Emptasktable = ({
   }, */}
 
         {/* upadate today task managed */}
-        {added ? (
-          <div className="bg-green-300">
-            <div className="flex flex-row ">
-              {Object.keys(...updateTask).map((item, index) => {
-                if (index === 0) {
-                  return <div key={index}></div>;
-                }
-                if (index <= 4) {
-                  return (
-                    <div key={index} className="flex flex-row">
-                      <SingleDetail
-                        title={infoDataTask[index]}
-                        singleData={Object.values(...updateTask)[index]}
-                      />
-                    </div>
-                  );
-                }
-                return <div key={index}></div>;
-              })}
-            </div>
-            <div>
-              {updateTask.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Paper elevation={5}>
-                      <div className="min-h-[15vh] bg-green-300 pt-2 min-w-[1200px] flex flex-column  items-center">
-                        {/* form*/}
-                        <form
-                          method="GET"
-                          id="my_form2"
-                          onSubmit={ontaskUpdateSubmit}
-                        >
-                          <div className="flex flex-row">
-                            <div className=" min-h-[8vh]   flex flex-row ">
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-centerflex-row py-1 px-2 ">
-                                  <label htmlFor=" worked">worked hours </label>
-                                  <input
-                                    id=" worked"
-                                    type="text"
-                                    name=" worked"
-                                    form="my_form2"
-                                    placeholder=" worked hours "
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className=" flex justify-start p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor="clocked">
-                                    clocked hours{" "}
-                                  </label>
-                                  <input
-                                    id="clocked"
-                                    type="text"
-                                    name="clocked"
-                                    form="my_form2"
-                                    placeholder="clocked hours"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    size="12"
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor=" utilised">
-                                    utilised hours{" "}
-                                  </label>
-                                  <input
-                                    id=" utilised"
-                                    type="text"
-                                    name=" utilised"
-                                    form="my_form2"
-                                    placeholder=" utilised hours"
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center flex-row py-1 px-1  ">
-                                  <label htmlFor="empremarks">
-                                    Employee Remarks
-                                  </label>
-                                  <textarea
-                                    id="empremarks"
-                                    name="empremarks"
-                                    type="text"
-                                    rows="2"
-                                    cols="30"
-                                    form="my_form2"
-                                    placeholder="employee remarks about project task"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="resize-none border-purple-800 rounded-md border-2 -ml-10"
-                                    maxLength="70"
-                                  ></textarea>
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className="flex addEmpForm items-center flex-row py-1 px-1  ">
-                                  <button
-                                    type="submit"
-                                    form="my_form2"
-                                    className="bg-green-300 py-3 px-1 text-white hover:bg-red-300"
-                                  >
-                                    Submit
-                                  </button>
-                                </div>
-                              </Paper>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </Paper>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        ) : null}
       </Paper>
 
       {/* add idle work form */}
@@ -538,133 +370,6 @@ const Emptasktable = ({
         {/* title header add and show here*/}
 
         <Paper elevation={2} className="mb-3 mx-0.5 ">
-          {edit
-            ? null
-            : updateTask.map((item, index) => {
-                return (
-                  <div key={index}>
-                    <Paper elevation={5}>
-                      <div className="min-h-[13vh] bg-green-300 pt-2 min-w-[1200px] flex flex-column  items-center">
-                        {/* form*/}
-                        <form
-                          method="GET"
-                          id="my_form2"
-                          onSubmit={ontaskUpdateSubmit}
-                        >
-                          <div className="flex flex-row">
-                            <div className="bg-green-300 min-h-[8vh]   flex flex-row ">
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-centerflex-row py-1 px-2 ">
-                                  <label htmlFor=" worked">worked hours </label>
-                                  <input
-                                    id=" worked"
-                                    type="text"
-                                    name=" worked"
-                                    form="my_form2"
-                                    placeholder=" worked hours "
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className=" flex justify-start p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor="clocked">clocked hours</label>
-                                  <input
-                                    id="clocked"
-                                    type="text"
-                                    name="clocked"
-                                    form="my_form2"
-                                    placeholder="clocked hours"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    size="12"
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center  flex-row py-1 px-2 ">
-                                  <label htmlFor=" utilised">
-                                    utilised hours
-                                  </label>
-                                  <input
-                                    id=" utilised"
-                                    type="text"
-                                    name=" utilised"
-                                    form="my_form2"
-                                    placeholder=" utilised hours"
-                                    size="12"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                                  />
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className=" addEmpForm flex items-center flex-row py-1 px-1  ">
-                                  <label htmlFor="empremarks">
-                                    Employee Remarks
-                                  </label>
-                                  <textarea
-                                    id="empremarks"
-                                    name="empremarks"
-                                    type="text"
-                                    rows="2"
-                                    cols="30"
-                                    form="my_form2"
-                                    placeholder="employee remarks about project task"
-                                    onChange={(e) => {
-                                      onChangeUpdate(e);
-                                    }}
-                                    className="resize-none border-purple-800 rounded-md border-2 -ml-10"
-                                    maxLength="70"
-                                  ></textarea>
-                                </div>
-                              </Paper>
-
-                              <Paper
-                                elevation={8}
-                                className="flex justify-center p-1 m-1"
-                              >
-                                <div className="flex addEmpForm items-center flex-row py-1 px-1  ">
-                                  <button
-                                    type="submit"
-                                    form="my_form2"
-                                    className="bg-green-300 py-3 px-1 text-white hover:bg-red-300"
-                                  >
-                                    Submit
-                                  </button>
-                                </div>
-                              </Paper>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </Paper>
-                  </div>
-                );
-              })}
           <div className="flex flex-row items-center justify-between mx-2 -mb-2">
             <div className="flex flex-row items-center space-x-4">
               <h1 className="font-sans md:font-serif  text-base  leading-5 uppercase">
@@ -727,15 +432,15 @@ const Emptasktable = ({
               : " h-[27vh] mt-2  overflow-auto p-2"
           }
         >
-          <table className="EmpLeaveTable min-w-[2000px] ">
-            <thead className=" py-2">
+          <table className="EmpLeaveTable min-w-[2400px] ">
+            <thead className=" py-2 bg-white">
               <tr>
-                <th className="bg-indigo-400 font-serif leading-5 font-medium italic hover:not-italic">
+                <th className=" text-sm font-light headerfont">
                   <p className="border-2   rounded-lg py-2 grid justify-items-center ">
                     Edit
                   </p>
                 </th>
-                <th className="bg-indigo-400 font-serif leading-5 font-medium italic hover:not-italic">
+                <th className=" text-sm font-light headerfont">
                   <p className="border-2 rounded-lg py-2 grid justify-items-center ">
                     cancel
                   </p>
@@ -796,7 +501,7 @@ const Emptasktable = ({
                           title={`${Object.keys(item)[index]}`}
                         >
                           <td>
-                            <p className="border-2   rounded-lg py-2 grid justify-items-center ">
+                            <p className="border-2   rounded-lg py-2 grid justify-items-center text-gray-800 ">
                               {item[data]}
                             </p>
                           </td>
@@ -808,104 +513,6 @@ const Emptasktable = ({
               })}
             </tbody>
           </table>
-        </div>
-      </Paper>
-
-      {/* table non aproved task  */}
-      <Paper>
-        <div
-          className={
-            shownontable
-              ? "mt-2  overflow-auto p-2"
-              : " h-[26vh] mt-1 overflow-auto p-2"
-          }
-        >
-          <div className="flex flex-row items-center justify-between mx-2 -mb-2">
-            <div className="flex flex-row items-center space-x-4">
-              <h1 className="font-sans md:font-serif  text-base  leading-5 uppercase">
-                non approved
-              </h1>
-              <label htmlFor="search"></label>
-              <Tooltip title="search">
-                <input
-                  id="search"
-                  type="text"
-                  placeholder="search"
-                  size="12"
-                  className="px-3 py-1  m-2 outline-none border-2 rounded-full border-indigo-400"
-                  onChange={(event) => handleSearch(event)}
-                />
-              </Tooltip>
-            </div>
-
-            <div className="mr-3.5 flex flex-row items-center space-x-4 ">
-              <div>
-                <Tooltip title="create" onClick={onhandleadd}>
-                  <IconButton>
-                    <AddCircleOutlineIcon className="text-indigo-400 " />
-                  </IconButton>
-                </Tooltip>
-              </div>
-              <div>
-                <Tooltip title="show">
-                  <button
-                    className="  flex  p-1 rounded-lg shadow hover:shadow-lg outline-hidden border-none  items-center"
-                    onClick={() => {
-                      setShownontable(!shownontable);
-                    }}
-                  >
-                    <p>show</p>
-                  </button>
-                </Tooltip>
-              </div>
-            </div>
-          </div>
-          <div>
-            <table className="EmpLeaveTable min-w-[1800px]  ">
-              <thead className=" py-2">
-                <tr>
-                  <Tableheader
-                    initialState={headerState[0]}
-                    theadColor="bg-indigo-400"
-                  />
-                </tr>
-              </thead>
-
-              <tbody className="overflow-auto">
-                {ApprovedData.map((item, index) => {
-                  return (
-                    <tr
-                      key={index}
-                      onClick={(e) => {
-                        onRowshow(e, item);
-                      }}
-                      onDoubleClick={(e) => {
-                        onRowshowclose(e, item);
-                      }}
-                    >
-                      {Object.keys(item).map((data, index) => {
-                        if (Object.keys(item)[0] === Object.keys(item)[index]) {
-                          return <td key={Object.values(item)}></td>;
-                        }
-                        return (
-                          <Tooltip
-                            key={index}
-                            title={`${Object.keys(item)[index]}`}
-                          >
-                            <td>
-                              <p className="border-2   rounded-lg py-2 grid justify-items-center ">
-                                {item[data]}
-                              </p>
-                            </td>
-                          </Tooltip>
-                        );
-                      })}
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div>
         </div>
       </Paper>
     </div>

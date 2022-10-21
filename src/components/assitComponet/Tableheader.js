@@ -8,10 +8,7 @@ const Tableheader = ({ initialState, theadColor }) => {
           return <th key={Object.values(item)}></th>;
         }
         return (
-          <th
-            className="bg-indigo-400 font-serif leading-5 min-w-[150px] font-medium italic hover:not-italic"
-            key={index}
-          >
+          <th key={index} className=" text-sm font-light headerfont">
             <p className="border-2  rounded-lg py-2 grid justify-items-center ">
               {item}
             </p>

@@ -1,5 +1,4 @@
 import React from "react";
-import ProfileCard from "./ProfileCard";
 import EmpLeaves from "./EmpLeaves";
 import EmpLeaveDate from "./EmpLeaveDate";
 
@@ -68,14 +67,11 @@ const Data2 = [
 
 const ProfileDetails = () => {
   return (
-    <div className="flex mb-1 space-x-1">
-      <div className="w-[33%] ">
-        <ProfileCard />
-      </div>
-      <div className="w-[33%]">
+    <div className=" lg:flex lg:flex-row space-x-1 ">
+      <div className="w-[33%]  mb-1">
         <EmpLeaves initialData={Data1} />
       </div>
-      <div className="w-[33%]">
+      <div className="w-[33%]  mb-1">
         <EmpLeaveDate initialData={Data2} />
       </div>
     </div>

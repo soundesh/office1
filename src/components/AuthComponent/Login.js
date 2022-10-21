@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import HrImg from "./loginimage/hrfemale.png";
-import LoginImg from "./loginimage/login.png";
 const Login = () => {
-  const [login, setLogin] = useState();
   const [loginData, setLoginData] = useState({
     empId: "",
     password: "",

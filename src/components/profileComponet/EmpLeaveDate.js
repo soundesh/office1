@@ -26,9 +26,9 @@ import { Tooltip } from "@mui/material";
 const EmpLeaveDate = ({ initialData }) => {
   const [initialState] = useState(initialData);
   return (
-    <div className="boxDataShdow rounded-lg bg-white  addEmpForm min-h-52 h-56 min-w-[300px] w-full ">
-      <h1 className="flex justify-center mb-2"> Holiday leaves</h1>
-      <div className="border-y-4 border-pink-400  rounded-3xl flex flex-row space-x-2 flex justify-center  items-center">
+    <div className="boxDataShdow rounded-lg  min-h-52 h-56 min-w-[270px]  w-full ">
+      <h1 className="flex justify-center mb-2 text-xl"> Holiday leaves</h1>
+      <div className="rounded-3xl flex flex-row space-x-2 flex justify-center  items-center">
         <div className="rounded-lg space-y-3 h-36  overflow-auto overflow-hidde mt-2 mb-3  ">
           <div className="flex justify-center ">
             <table>

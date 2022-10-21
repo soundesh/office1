@@ -107,40 +107,42 @@ const Sidebar = ({ children }) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div className="container1 bg-indigo-800 overflow-y-auto ">
-      <div className="sidebar">
-        <div>
-          {menuItem.map((item, index) => (
-            <NavLink
-              onClick={() => setUsingPath(item.path)}
-              to={item.path}
-              key={index}
-              className="link"
-            >
-              <div className="icon">{item.icon}</div>
-            </NavLink>
-          ))}
+    <div>
+      <div className="container1 bg-slate-100 overflow-y-auto ">
+        <div className="sidebar">
+          <div>
+            {menuItem.map((item, index) => (
+              <NavLink
+                onClick={() => setUsingPath(item.path)}
+                to={item.path}
+                key={index}
+                className="link"
+              >
+                <div className="icon">{item.icon}</div>
+              </NavLink>
+            ))}
+          </div>
+          <div className="sidebarSetting">
+            {menuItem1.map((item, index) => (
+              <NavLink
+                to={item.path}
+                key={index}
+                onClick={() => setUsingPath(item.path)}
+                className="link"
+              >
+                <div className="icon">{item.icon}</div>
+              </NavLink>
+            ))}
+          </div>
         </div>
-        <div className="sidebarSetting">
-          {menuItem1.map((item, index) => (
-            <NavLink
-              to={item.path}
-              key={index}
-              onClick={() => setUsingPath(item.path)}
-              className="link"
-            >
-              <div className="icon">{item.icon}</div>
-            </NavLink>
-          ))}
-        </div>
+        {isOpen ? <Sidelistbar usingPath={usingPath} /> : null}
+        <button onClick={toggle} className="sidebarBtn">
+          <span className="dash-icon-arrow flex flex-end">
+            <i className="material-icons animate-spin">settings</i>
+          </span>
+        </button>
+        <main>{children}</main>
       </div>
-      {isOpen ? <Sidelistbar usingPath={usingPath} /> : null}
-      <button onClick={toggle} className="sidebarBtn">
-        <span className="dash-icon-arrow flex flex-end">
-          <i className="material-icons animate-spin">settings</i>
-        </span>
-      </button>
-      <main>{children}</main>
     </div>
   );
 };
